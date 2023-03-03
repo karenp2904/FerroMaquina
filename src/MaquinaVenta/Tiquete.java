@@ -5,6 +5,7 @@ import Entidades.Tren.Vagon;
 import Listas.LinkedList;
 import Entidades.Tren.TipoPasajero;
 import Entidades.Tren.RutaTren;
+import Listas.LinkedListNode;
 
 import java.time.LocalDateTime;
 import java.util.Iterator;
@@ -108,11 +109,13 @@ public class Tiquete extends RutaTren {
 	
 	public void desplegarRutas() {
 		try {
-			Iterator ite = listaRutas().iterator();
+			Iterator ite=listaRutas().iterator();
 			System.out.println("-------------RUTAS DE TRENES------------------");
 			while (ite.hasNext()) {
-				RutaTren rutas = (RutaTren) ite.next();
-				System.out.println("Tren: " + rutas.getTren());
+				LinkedListNode rutass = (LinkedListNode) ite.next();
+				RutaTren rutas= (RutaTren) rutass.getObject();
+
+				System.out.println("Tren: " + rutas.getTren().getIdTren());
 				System.out.println("Origen: " + rutas.getOrigen());
 				System.out.println("Destino: " + rutas.getDestino());
 				System.out.println("Fecha de salida: " + rutas.getFechaSalida());

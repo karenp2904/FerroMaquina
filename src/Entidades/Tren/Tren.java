@@ -1,5 +1,7 @@
 package Entidades.Tren;
+import Entidades.Personas.Pasajero;
 import Listas.LinkedList;
+import Listas.LinkedListNode;
 
 
 public class Tren {
@@ -54,14 +56,29 @@ public class Tren {
 		
 	}
 
-	public Vagon buscarVagon(Vagon vagon) {
-		Vagon vagonEncontrado=null;
+	public int buscarVagon(Vagon vagon) {
+		Boolean pasajeroEnVagon=false;
+		int contarVagones=0;
 		try {
-			vagonEncontrado=(Vagon) vagonesTren.nodeOf(vagon);
+			LinkedListNode<Pasajero> vagonAux=new LinkedListNode();
+			vagonAux=vagonesTren.head;
+			while(pasajeroEnVagon=true){
+				while (vagonAux!=null){
+					if (vagonAux.getObject().equals(vagon)) {
+						pasajeroEnVagon=true;
+						return contarVagones;
+					}else {
+						contarVagones++;
+						vagonAux=vagonAux.getNext();
+					}
+				}
+
+			}
+
 		}catch (Exception e){
             e.printStackTrace();
         }finally {
-        	return vagonEncontrado;
+        	return contarVagones;
         }
 	}
 

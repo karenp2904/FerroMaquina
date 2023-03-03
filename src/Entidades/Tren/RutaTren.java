@@ -11,7 +11,6 @@ public class RutaTren {
 	Tren tren;
 
 	public RutaTren() {
-
 	}
 
 	public RutaTren(Tren tren, String destino, String origen, LocalDateTime fechaSalida, LocalDateTime fechaLlegada) {
@@ -22,8 +21,6 @@ public class RutaTren {
 		this.fechaLlegada = fechaLlegada;
 	}
 
-
-	
 	public String getDestino() {
 		return destino;
 	}
