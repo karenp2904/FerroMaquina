@@ -5,6 +5,7 @@ import Entidades.Tren.Vagon;
 import Listas.LinkedList;
 import Entidades.Tren.TipoPasajero;
 import Entidades.Tren.RutaTren;
+
 import java.time.LocalDateTime;
 import java.util.Iterator;
 
@@ -49,6 +50,7 @@ public class Tiquete extends RutaTren {
 	}
 	
 	public LinkedList<RutaTren> listaRutas(){
+
 		LinkedList<RutaTren> rutasLista= new LinkedList();
 		
 		//RUTAS DE BGA A BOGOTA
@@ -105,16 +107,20 @@ public class Tiquete extends RutaTren {
 	}
 	
 	public void desplegarRutas() {
-		Iterator ite= listaRutas().iterator();
-		System.out.println("-------------RUTAS DE TRENES------------------");
-		while (ite.hasNext()){
-			RutaTren rutas= (RutaTren) ite.next();
-			System.out.println("Tren: " + rutas.getTren());
-			System.out.println("Origen: " + rutas.getOrigen());
-			System.out.println("Destino: " + rutas.getDestino());
-			System.out.println("Fecha de salida: " + rutas.getFechaSalida());
-			System.out.println("Fecha de llegada: " + rutas.getFechaLlegada());
-			System.out.println("---------------------------------------------");
+		try {
+			Iterator ite = listaRutas().iterator();
+			System.out.println("-------------RUTAS DE TRENES------------------");
+			while (ite.hasNext()) {
+				RutaTren rutas = (RutaTren) ite.next();
+				System.out.println("Tren: " + rutas.getTren());
+				System.out.println("Origen: " + rutas.getOrigen());
+				System.out.println("Destino: " + rutas.getDestino());
+				System.out.println("Fecha de salida: " + rutas.getFechaSalida());
+				System.out.println("Fecha de llegada: " + rutas.getFechaLlegada());
+				System.out.println("---------------------------------------------");
+			}
+		}catch (Exception e){
+			e.printStackTrace();
 		}
 
 	}

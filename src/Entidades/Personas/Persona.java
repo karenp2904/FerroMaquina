@@ -1,4 +1,4 @@
-package Personas;
+package Entidades.Personas;
 
 public abstract class Persona {
 	
