@@ -106,7 +106,7 @@ public class Tiquete extends RutaTren {
 	
 	public void desplegarRutas() {
 		Iterator ite= listaRutas().iterator();
-		System.out.println("----RUTAS DE TRENES------");
+		System.out.println("-------------RUTAS DE TRENES------------------");
 		while (ite.hasNext()){
 			RutaTren rutas= (RutaTren) ite.next();
 			System.out.println("Tren: " + rutas.getTren());
@@ -114,7 +114,7 @@ public class Tiquete extends RutaTren {
 			System.out.println("Destino: " + rutas.getDestino());
 			System.out.println("Fecha de salida: " + rutas.getFechaSalida());
 			System.out.println("Fecha de llegada: " + rutas.getFechaLlegada());
-			System.out.println("----------------------");
+			System.out.println("---------------------------------------------");
 		}
 
 	}
