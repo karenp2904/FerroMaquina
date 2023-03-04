@@ -33,8 +33,6 @@ public class MaquinaVenta extends Tiquete{
         }finally{
             return tiqueteAgregado; 
         }
-
-
 	}
 
 

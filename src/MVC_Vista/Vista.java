@@ -55,6 +55,46 @@ public class Vista {
 			int telefono=sc.nextInt();
 			return telefono;
 		}
+
+		//metodos para la informacion del contacto de emergencia
+		public String ingresarNombreEmergencia(){
+			System.out.println("A continuación se le solicitará la información para un contacto de emergencia ");
+			System.out.println("Ingrese su nombre: ");
+			String nombre=sc.next();
+			return nombre;
+		}
+		public String ingresarApellidoEmergencia(){
+			System.out.println("Ingrese su apellido: ");
+			String apellido=sc.next();
+			return apellido;
+		}
+		public int ingresarEdadEmergencia(){
+			System.out.println("Ingrese su edad: ");
+			int edad=sc.nextInt();
+			return edad;
+		}
+		public String ingresarTipoIdentificacionEmergencia(){
+			System.out.println("Ingrese su tipo de identificacion: ");
+			String tipoIdentificacion=sc.next();
+			return tipoIdentificacion;
+		}
+		public int ingresarNumeroIdentificacionEmergencia(){
+			System.out.println("Ingrese su numero de identificacion: ");
+			int numero=sc.nextInt();
+			return numero;
+		}
+		public String ingresarDireccionEmergencia(){
+			System.out.println("Ingrese su direccion: ");
+			String direccion=sc.next();
+			return direccion;
+		}
+		public int ingresarNumTelefonicoEmergencia(){
+			System.out.println("Ingrese su numero de telefono: ");
+			int telefono=sc.nextInt();
+			return telefono;
+		}
+
+		//metodos para las rutas del tren
 		public void mostrarTodasRutas(){//aviso antes de que se muestren las rutas
 			System.out.println("A continuacion, se mostraran los trenes disponibles con sus respectivas rutas");
 		}
