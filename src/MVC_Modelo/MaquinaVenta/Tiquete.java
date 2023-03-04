@@ -8,6 +8,7 @@ import MVC_Modelo.Listas.LinkedList;
 import Entidades.Tren.TipoPasajero;
 import Entidades.Tren.RutaTren;
 import MVC_Modelo.Listas.LinkedListNode;
+import MVC_Modelo.Listas.Node;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.time.LocalDateTime;
@@ -120,46 +121,68 @@ public class Tiquete {
 
 	}
 	public RutaTren elegirRuta(int numeroTren){
-		Iterator ite=listaRutas().iterator();
-		LinkedListNode rutass = (LinkedListNode) ite.next();
-		RutaTren rutas= (RutaTren) rutass.getObject();
+		Iterator<Node> ite=listaRutas().iterator();
+		RutaTren rutas= (RutaTren) ite.next().getObject();
 		switch (numeroTren){
 			case 1:
 				System.out.println("EL tren es: " + rutas.getTren().getIdTren());
 				tren.setIdTren("001");
 				break;
 			case 2:
-				rutas= (RutaTren) rutass.getNext().getObject();
+				rutas= (RutaTren) ite.next().getObject();
 				System.out.println("EL tren es: " + rutas.getTren().getIdTren());
 				tren.setIdTren("002");
 				break;
 			case 3:
-				rutas= (RutaTren) rutass.getNext().getNext().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
 				System.out.println("EL tren es: " + rutas.getTren().getIdTren());
 				tren.setIdTren("003");
 				break;
 			case 4:
-				rutas= (RutaTren) rutass.getNext().getNext().getNext().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
 				System.out.println("EL tren es: " + rutas.getTren().getIdTren());
 				tren.setIdTren("004");
 				break;
 			case 5:
-				rutas= (RutaTren) rutass.getNext().getNext().getNext().getNext().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
 				System.out.println("EL tren es: " + rutas.getTren().getIdTren());
 				tren.setIdTren("005");
 				break;
 			case 6:
-				rutas= (RutaTren) rutass.getNext().getNext().getNext().getNext().getNext().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
 				System.out.println("EL tren es: " + rutas.getTren().getIdTren());
 				tren.setIdTren("006");
 				break;
 			case 7:
-				rutas= (RutaTren) rutass.getNext().getNext().getNext().getNext().getNext().getNext().getObject();
+				//rutas= (RutaTren) rutass.getNext().getNext().getNext().getNext().getNext().getNext().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
 				System.out.println("EL tren es: " + rutas.getTren().getIdTren());
 				tren.setIdTren("007");
 				break;
 			case 8:
-				rutas= (RutaTren) rutass.getNext().getNext().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				rutas= (RutaTren) ite.next().getObject();
+				//rutas= (RutaTren) rutass.getNext().getNext().getObject();
 				System.out.println("EL tren es: " + rutas.getTren().getIdTren());
 				tren.setIdTren("008");
 				break;
