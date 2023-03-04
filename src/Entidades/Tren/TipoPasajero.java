@@ -4,7 +4,12 @@ public class TipoPasajero {
 	String eco;
 	String premium;
 	String ejecutivo;
-	
+
+	public TipoPasajero(String pasajero) {
+		definirPasajero(pasajero);
+
+	}
+
 	public int definirPasajero(String pasajeroTipo) {
 		int valorPasaje=0;
 		if(pasajeroTipo.toLowerCase()==eco) {

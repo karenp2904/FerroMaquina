@@ -4,6 +4,8 @@ import MVC_Modelo.Listas.LinkedList;
 import MVC_Modelo.Listas.LinkedListNode;
 import Entidades.Personas.Pasajero;
 
+import java.util.Iterator;
+
 public class Vagon {
 
 	static int cantidadPersonas = 30;// por cada vagon 30 personas
@@ -12,6 +14,21 @@ public class Vagon {
 	Tren tren;
 
 	public Vagon() {
+
+	}
+	public LinkedList<Pasajero> listaPuestos(){
+		try{
+			Iterator ite=listaPuestos().iterator();
+			while (ite.hasNext()) {
+				LinkedListNode puestoPasajero= (LinkedListNode) ite.next();
+				Pasajero pasajero= (Pasajero) puestoPasajero.getObject();
+
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			return listaPuestos;
+		}
 
 	}
 
@@ -32,20 +49,23 @@ public class Vagon {
 		}
 	}
 
-	public int buscarPasajero(Pasajero pasajero) {
+	public int buscarPasajero(int  idRegistro) {
 		boolean pasajeroEnVagon = false;
 		int contarPuesto = 0;
 		try {
-			if(pasajero!=null){
+			if(idRegistro!=0){
+				Iterator ite=listaPuestos().iterator();
 				LinkedListNode<Pasajero> pasajeroAux = new LinkedListNode();
-				pasajeroAux = listaPuestos.head;
-				while (pasajeroEnVagon = true) ;
-				if (pasajeroAux.getObject() == pasajero) {
-					pasajeroEnVagon = true;
-					return contarPuesto;
-				} else {
-					contarPuesto++;
-					pasajeroAux = pasajeroAux.getNext();
+				while (ite.hasNext()) {
+					pasajeroAux= (LinkedListNode<Pasajero>) ite.next();
+					Pasajero passe= (Pasajero) pasajeroAux.getObject();
+					if (passe.getIdRegistro() == idRegistro) {
+						pasajeroEnVagon = true;
+						return contarPuesto;
+					} else {
+						contarPuesto++;
+						pasajeroAux = pasajeroAux.getNext();
+					}
 				}
 			}else{
 				return 0;

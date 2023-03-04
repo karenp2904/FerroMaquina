@@ -8,7 +8,6 @@ public class Tren {
 
 	String idTren;
 	static int cantidadVagones=26; // son 40 vagones pero dos vagones de persona generan uno de carga 26/2=12 y 26+13=39 vagones ocupados
-	
 	LinkedList<Vagon> vagonesTren= new LinkedList(idTren);
 
 	public Tren(String idTren ) {

@@ -5,7 +5,7 @@ import MVC_Controlador.Controlador;
 import java.util.Scanner;
 
 public class Vista {
-	   private Controlador controlador;
+	   private Controlador controlador=new Controlador();
 
 	public Vista(Controlador controlador) {
 		this.controlador = controlador;
@@ -16,100 +16,120 @@ public class Vista {
 		public void bienvenida(){
 			System.out.println("Bienvenido al FerroUPB");
 			System.out.println("Ingrese sus datos personales");
+			ingresarNombre();
 		}
 
 		//metodos para ingresar la informacion del pasajero
 		public String ingresarNombre(){
 			System.out.println("Ingrese su nombre: ");
-			String nombre=sc.next();
+			String nombre=sc.next().toString();
+			ingresarApellido();
 			return nombre;
 		}
 		public String ingresarApellido(){
 			System.out.println("Ingrese su apellido: ");
-			String apellido=sc.next();
+			String apellido=sc.next().toString();
+			ingresarTipoIdentificacion();
 			return apellido;
 		}
-		public int ingresarEdad(){
-			System.out.println("Ingrese su edad: ");
-			int edad=sc.nextInt();
-			return edad;
-		}
+
 		public String ingresarTipoIdentificacion(){
 			System.out.println("Ingrese su tipo de identificacion: ");
-			String tipoIdentificacion=sc.next();
+			String tipoIdentificacion=sc.next().toString();
+			ingresarNumeroIdentificacion();
 			return tipoIdentificacion;
 		}
 		public int ingresarNumeroIdentificacion(){
 			System.out.println("Ingrese su numero de identificacion: ");
 			int numero=sc.nextInt();
+			ingresarDireccionCiudad();
 			return numero;
 		}
 		public String ingresarDireccionCiudad(){
 			System.out.println("Ingrese su direccion:");
 			System.out.println("Ingrese su ciudad ");
-			String direccion=sc.next();
+			String direccion=sc.next().toString();
+			ingresarDireccionCalle();
 			return direccion;
 		}
 		public String ingresarDireccionCalle(){
-			System.out.println("Ingrese su direccion:");
 			System.out.println("Ingrese su calle ");
-			String direccion=sc.next();
+			String direccion=sc.next().toString();
+			ingresarDireccionCarrera();
 			return direccion;
 		}
 		public String ingresarDireccionCarrera(){
-			System.out.println("Ingrese su direccion:");
 			System.out.println("Ingrese su carrera ");
-			String direccion=sc.next();
+			String direccion=sc.next().toString();
+			ingresarNumTelefonico();
 			return direccion;
 		}
 
 		public int ingresarNumTelefonico(){
 			System.out.println("Ingrese su numero de telefono: ");
 			int telefono=sc.nextInt();
+			ingresarNombreEmergencia();
 			return telefono;
 		}
 
 		//metodos para la informacion del contacto de emergencia
 		public String ingresarNombreEmergencia(){
-			System.out.println("A continuación se le solicitará la información para un contacto de emergencia ");
+			System.out.println("\nA continuación se le solicitará la información para un contacto de emergencia ");
 			System.out.println("Ingrese su nombre: ");
-			String nombre=sc.next();
+			String nombre=sc.next().toString();
+			ingresarApellidoEmergencia();
 			return nombre;
 		}
 		public String ingresarApellidoEmergencia(){
 			System.out.println("Ingrese su apellido: ");
-			String apellido=sc.next();
+			String apellido=sc.next().toString();
+			ingresarTipoIdentificacionEmergencia();
 			return apellido;
 		}
-		public int ingresarEdadEmergencia(){
-			System.out.println("Ingrese su edad: ");
-			int edad=sc.nextInt();
-			return edad;
-		}
+
 		public String ingresarTipoIdentificacionEmergencia(){
 			System.out.println("Ingrese su tipo de identificacion: ");
-			String tipoIdentificacion=sc.next();
+			String tipoIdentificacion=sc.next().toString();
+			ingresarNumeroIdentificacionEmergencia();
 			return tipoIdentificacion;
 		}
 		public int ingresarNumeroIdentificacionEmergencia(){
 			System.out.println("Ingrese su numero de identificacion: ");
 			int numero=sc.nextInt();
+			ingresarDireccionCiudadEmergencia();
 			return numero;
 		}
-		public String ingresarDireccionEmergencia(){
-			System.out.println("Ingrese su direccion: ");
-			String direccion=sc.next();
-			return direccion;
-		}
+	public String ingresarDireccionCiudadEmergencia(){
+		System.out.println("Ingrese su direccion de emergencia:");
+		System.out.println("Ingrese su ciudad ");
+		String direccion=sc.next().toString();
+		ingresarDireccionCalleEmergencia();
+		return direccion;
+	}
+	public String ingresarDireccionCalleEmergencia(){
+		System.out.println("Ingrese su calle ");
+		String direccion=sc.next().toString();
+		ingresarDireccionCarreraEmergencia();
+		return direccion;
+	}
+	public String ingresarDireccionCarreraEmergencia(){
+		System.out.println("Ingrese su carrera ");
+		String direccion=sc.next().toString();
+		ingresarNumTelefonicoEmergencia();
+		return direccion;
+	}
 		public int ingresarNumTelefonicoEmergencia(){
 			System.out.println("Ingrese su numero de telefono: ");
 			int telefono=sc.nextInt();
+			mostrarTodasRutas();
 			return telefono;
 		}
 
 		//metodos para las rutas del tren
 		public void mostrarTodasRutas(){//aviso antes de que se muestren las rutas
 			System.out.println("A continuacion, se mostraran los trenes disponibles con sus respectivas rutas");
+			controlador.mostrarRutastren();
+			mostrarOpcionesElegirRuta();
 		}
 		public int mostrarOpcionesElegirRuta() {//se muestran las opciones de trenes, pero antes se desplegaron las rutas
 			Scanner entrada=new Scanner(System.in);
@@ -128,6 +148,7 @@ public class Vista {
 				numeroTren = entrada.nextInt();
 
 			} while (numeroTren < 1 || numeroTren > 9);
+			ingresarPesoDeCarga();
 			return numeroTren;
 		}
 		public int  ingresarPesoDeCarga(){// se ingresa el peso de carga
@@ -136,10 +157,11 @@ public class Vista {
 				System.out.println("Ingreso el peso de su equipaje");
 				peso = sc.nextInt();
 			}while (peso>150); //150 es el peso maximo que podra tener el equipaje, si es mayor el usuario tendra que colocar otro para poder seguir
+			elegirPasajeroDeTiquete();
 			return peso;
 		}
 
-		public String elegirPrecioDeTiquete(){
+		public String elegirPasajeroDeTiquete(){
 			String tipo;
 			System.out.println("Tipos de tarifas disponibles"
 					+ "\n Ejecutivo" +
@@ -154,7 +176,7 @@ public class Vista {
 						"\nPremium" +
 						"\nEcomonico" +
 						"Ingrese el tipo que desea: ");
-				tipo=sc.next();
+				tipo=sc.next().toString().toLowerCase();
 			}
 			return tipo;
 		}
