@@ -1,9 +1,7 @@
 package MVC_Vista;
 
 import Entidades.Personas.Direccion;
-import Entidades.Tren.Tren;
 import MVC_Controlador.Controlador;
-
 import java.util.Scanner;
 
 public class Vista {
@@ -12,6 +10,7 @@ public class Vista {
 	public Vista(Controlador controlador) {
 		this.controlador = controlador;
 	}
+	public Vista(){}
 
 	Scanner sc=new Scanner(System.in);
 		public void bienvenida(){
@@ -45,11 +44,25 @@ public class Vista {
 			int numero=sc.nextInt();
 			return numero;
 		}
-		public String ingresarDireccion(){
-			System.out.println("Ingrese su direccion: ");
+		public String ingresarDireccionCiudad(){
+			System.out.println("Ingrese su direccion:");
+			System.out.println("Ingrese su ciudad ");
 			String direccion=sc.next();
 			return direccion;
 		}
+		public String ingresarDireccionCalle(){
+			System.out.println("Ingrese su direccion:");
+			System.out.println("Ingrese su calle ");
+			String direccion=sc.next();
+			return direccion;
+		}
+		public String ingresarDireccionCarrera(){
+			System.out.println("Ingrese su direccion:");
+			System.out.println("Ingrese su carrera ");
+			String direccion=sc.next();
+			return direccion;
+		}
+
 		public int ingresarNumTelefonico(){
 			System.out.println("Ingrese su numero de telefono: ");
 			int telefono=sc.nextInt();

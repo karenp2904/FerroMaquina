@@ -1,5 +1,6 @@
 package MVC_Modelo.Modelo;
 
+import Entidades.Personas.Direccion;
 import Entidades.Personas.Pasajero;
 import Entidades.Tren.TipoPasajero;
 import Entidades.Tren.Tren;
@@ -15,7 +16,18 @@ public class Modelo {
    private Tiquete tiquete;
    private Vagon vagon;
    private Tren tren;
+   private Direccion direccion;
+   private Pasajero pasajero;
    private TipoPasajero tipoDePasajero;
+
+   public Direccion definirDireccion(String ciudad,String calle, String carrera){
+      Direccion direccion1=new Direccion(ciudad,calle,carrera);
+      return direccion1;
+   }
+   public Pasajero definirPersona(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion, Direccion direccionActual, int telefono, int idRegistro){
+      Pasajero p1=new Pasajero(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono,idRegistro);
+      return p1;
+   }
 
    public LinkedList listaDeRutasTren(){
       return tiquete.listaRutas();
