@@ -1,11 +1,6 @@
 package MVC_Controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import Entidades.Personas.Pasajero;
-import MVC_Modelo.MaquinaVenta.Tiquete;
-import MVC_Modelo.Modelo;
+import MVC_Modelo.Modelo.Modelo;
 import MVC_Vista.Vista;
 
 public class Controlador  {
@@ -22,8 +17,9 @@ public class Controlador  {
 	}
 
 	public void start(){
-
+		vista.bienvenida();
 	}
+
 
 
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import MVC_Modelo.Listas.LinkedList;
 
 public class Flota{ 
-	
+	//CLASE QUE POR EL MOMENTO NO SE USA SJKSKS
 	int trenes=8; //cantidad de trenes
 
 	Scanner entrada= new Scanner(System.in);

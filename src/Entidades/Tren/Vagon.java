@@ -11,6 +11,10 @@ public class Vagon {
 	LinkedList<Pasajero> listaPuestos = new LinkedList();
 	Tren tren;
 
+	public Vagon() {
+
+	}
+
 	public boolean añadirPasajero(Pasajero pasajero) {
 		boolean añadido = false;
 		try {
