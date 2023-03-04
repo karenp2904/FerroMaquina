@@ -7,13 +7,13 @@ public class TipoPasajero {
 	
 	public int definirPasajero(String pasajeroTipo) {
 		int valorPasaje=0;
-		if(pasajeroTipo==eco) {
+		if(pasajeroTipo.toLowerCase()==eco) {
 			valorPasaje= 75000;
 		}
-		if(pasajeroTipo==premium) {
+		if(pasajeroTipo.toLowerCase()==premium) {
 			valorPasaje= 1000000;
 		}
-		if(pasajeroTipo==ejecutivo) {
+		if(pasajeroTipo.toLowerCase()==ejecutivo) {
 			valorPasaje= 200000;
 		}
 		return valorPasaje;

@@ -8,7 +8,7 @@ public class Pasajero extends Persona {
 		this.idRegistro = idRegistro;
 	}
 
-	int idRegistro;
+	private int idRegistro;
 
 	public int getIdRegistro() {
 		return idRegistro;

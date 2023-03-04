@@ -1,11 +1,11 @@
 package Entidades.Personas;
 
 public class Direccion {
-	
-	
-	String calle;
-	String carrera;
-	String ciudad;
+
+
+	private String calle;
+	private String carrera;
+	private String ciudad;
 
 	
 	public Direccion(String calle, String carrera, String ciudad) {

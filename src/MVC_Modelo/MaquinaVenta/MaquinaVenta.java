@@ -1,9 +1,10 @@
-package MaquinaVenta;
+package MVC_Modelo.MaquinaVenta;
 import java.time.LocalDateTime;
 
+import Entidades.Personas.Pasajero;
 import Entidades.Tren.Tren;
 import Entidades.Tren.Vagon;
-import Listas.LinkedList;
+import MVC_Modelo.Listas.LinkedList;
 import Entidades.Tren.TipoPasajero;
 
 
@@ -11,7 +12,7 @@ public class MaquinaVenta extends Tiquete{
 
 
 	public MaquinaVenta(Tren tren, String destino, String origen, LocalDateTime fechaSalida, LocalDateTime fechaLlegada,
-						Vagon puesto, int pesoCarga, int idPasajero, TipoPasajero categoriaPasajero) {
+						Vagon puesto, int pesoCarga, Pasajero idPasajero, TipoPasajero categoriaPasajero) {
 		super(tren, destino, origen, fechaSalida, fechaLlegada, puesto, pesoCarga, idPasajero, categoriaPasajero);
 		// TODO Auto-generated constructor stub
 	}
@@ -23,7 +24,7 @@ public class MaquinaVenta extends Tiquete{
 	public boolean agregarTiquete(Tiquete tiquete) {
 		boolean tiqueteAgregado=false;
 		try {
-			if(tiquete.validarTiquete(pesoCarga)) {
+			if(tiquete.validarTiquete(tiquete.getPesoCarga())) {
 				listaTiquetes.add(tiquete);
 				tiqueteAgregado=true;
 			}
@@ -32,7 +33,11 @@ public class MaquinaVenta extends Tiquete{
         }finally{
             return tiqueteAgregado; 
         }
+
+
 	}
+
+
 
 
 }

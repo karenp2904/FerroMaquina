@@ -1,6 +1,5 @@
-package Listas;
+package MVC_Modelo.Listas;
 import java.util.Iterator;
-import java.util.ListIterator;
 
 public class LinkedList<T> implements List<T> {
 

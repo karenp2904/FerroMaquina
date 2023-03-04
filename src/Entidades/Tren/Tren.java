@@ -1,7 +1,7 @@
 package Entidades.Tren;
 import Entidades.Personas.Pasajero;
-import Listas.LinkedList;
-import Listas.LinkedListNode;
+import MVC_Modelo.Listas.LinkedList;
+import MVC_Modelo.Listas.LinkedListNode;
 
 
 public class Tren {

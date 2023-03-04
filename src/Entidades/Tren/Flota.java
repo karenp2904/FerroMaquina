@@ -2,7 +2,7 @@ package Entidades.Tren;
 
 import java.util.Scanner;
 
-import Listas.LinkedList;
+import MVC_Modelo.Listas.LinkedList;
 
 public class Flota{ 
 	

@@ -2,7 +2,7 @@ package Entidades.Personas;
 
 public class Empleado extends Persona {
 
-	String empleado;
+	private String empleado;
 	
 	public Empleado(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
 			Direccion direccionActual, int telefono,  String empleado) {

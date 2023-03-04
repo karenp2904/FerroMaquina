@@ -1,11 +1,8 @@
 package Entidades.Tren;
 
-import Entidades.Tren.Tren;
-import Listas.LinkedList;
-import Listas.LinkedListNode;
+import MVC_Modelo.Listas.LinkedList;
+import MVC_Modelo.Listas.LinkedListNode;
 import Entidades.Personas.Pasajero;
-
-import java.lang.constant.Constable;
 
 public class Vagon {
 

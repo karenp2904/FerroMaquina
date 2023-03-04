@@ -1,4 +1,4 @@
-package Listas;
+package MVC_Modelo.Listas;
 
 public interface Node<T> {
 

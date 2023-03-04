@@ -4,12 +4,12 @@ public abstract class Persona {
 	
 	//informacion datos de la persona
 	
-	String nombre;
-	String apellido;
-	String tipoIdentificacion;
-	int numeroIdentificacion;
-	Direccion direccionActual;
-	int telefono;
+	private String nombre;
+	private String apellido;
+	private String tipoIdentificacion;
+	private int numeroIdentificacion;
+	private Direccion direccionActual;
+	private int telefono;
 	
 
 	public Persona(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,

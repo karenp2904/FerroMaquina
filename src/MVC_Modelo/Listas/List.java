@@ -1,4 +1,4 @@
-package Listas;
+package MVC_Modelo.Listas;
 
 import java.util.Iterator;
 
