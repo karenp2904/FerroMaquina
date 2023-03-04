@@ -169,16 +169,8 @@ public class Vista {
 					"\nPremium" +
 					"\nEcomonico" +
 					"\nIngrese el tipo que desea: ");
-			tipo=sc.next();
-			while (tipo.toLowerCase()!="ejecutivo"||tipo.toLowerCase()!="premium"||tipo.toLowerCase()!="economico"){
-				System.out.println("Debe ingresar un tipo de tarifa valido.");
-				System.out.println("Tarifas disponibles"
-						+ "\n Ejecutivo" +
-						"\nPremium" +
-						"\nEcomonico" +
-						"Ingrese el tipo que desea: ");
-				tipo=sc.next().toString().toLowerCase();
-			}
+			tipo=sc.next().toString().toLowerCase();
+
 			return tipo;
 		}
 
