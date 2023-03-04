@@ -17,8 +17,8 @@ import java.util.Iterator;
 
 public class Modelo {
    private Controlador controlador;
-   private Tiquete tiquete;
-   private Vagon vagon;
+   private Tiquete tiquete=new Tiquete();
+   private Vagon vagon=new Vagon();
    private Tren tren;
    private Direccion direccion;
    private Pasajero pasajero;
@@ -54,13 +54,12 @@ public class Modelo {
       tiquete.elegirRuta(numerotren);
    }
 
-   public boolean añadirPasajeroVagon(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
-                                      Direccion direccionActual, int telefono, int idRegistro, TipoPasajero tipoPasajeros){
+   public boolean añadirPasajeroVagon(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion, Direccion direccionActual, int telefono, int idRegistro, TipoPasajero tipoPasajeros){
       Pasajero pasajero1=new Pasajero(nombre, apellido, tipoIdentificacion,  numeroIdentificacion, direccionActual, telefono, idRegistro,tipoPasajeros);
+      vagon=new Vagon(pasajero1);
       return vagon.añadirPasajero(pasajero1);
    }
-   public boolean añadirContactoEmergencia(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
-                                      Direccion direccionActual, int telefono){
+   public boolean añadirContactoEmergencia(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion, Direccion direccionActual, int telefono){
       PersonaEmergencia contacto=new PersonaEmergencia(nombre, apellido, tipoIdentificacion,  numeroIdentificacion, direccionActual, telefono);
       return true;
    }

@@ -22,7 +22,7 @@ public class Controlador  {
 		vista.bienvenida();
 		solicitarDatos();
 	}
-	public void mostrarRutastren(){
+	public void desplejarTodasRutasControl(){
 		modelo.desplegarRutastren();
 		eleecionRuta();
 	}
@@ -63,7 +63,7 @@ public class Controlador  {
 		int telefono= vista.ingresarNumTelefonicoEmergencia();
 		Direccion direccionActual=modelo.definirDireccion(ciudad,calle,carrera);
 		añadirContactoEmergencia(nombre, apellido, tipoId, numeroIde,direccionActual,telefono);
-		mostrarRutastren();
+		this.desplejarTodasRutasControl();
 	}
 	public void añadirContactoEmergencia(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
 										 Direccion direccionActual, int telefono){

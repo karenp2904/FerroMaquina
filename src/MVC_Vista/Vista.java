@@ -129,8 +129,8 @@ public class Vista {
 		//metodos para las rutas del tren
 		public void mostrarTodasRutas(){//aviso antes de que se muestren las rutas
 			System.out.println("A continuacion, se mostraran los trenes disponibles con sus respectivas rutas");
-			controlador.mostrarRutastren();
-			mostrarOpcionesElegirRuta();
+			controlador.desplejarTodasRutasControl();
+			//mostrarOpcionesElegirRuta();
 		}
 		public int mostrarOpcionesElegirRuta() {//se muestran las opciones de trenes, pero antes se desplegaron las rutas
 			Scanner entrada=new Scanner(System.in);
