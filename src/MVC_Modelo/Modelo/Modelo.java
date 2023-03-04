@@ -62,12 +62,13 @@ public class Modelo {
    }
 
    //metodo en ell que se elije un ruta
-   public void definirRuta(int numerotren){
-      tren=tiquete.elegirRuta(numerotren);
+   public RutaTren definirRuta(int numerotren){
+      rutas=tiquete.elegirRuta(numerotren);
       iniciarTren();
+      return rutas;
    }
    public void iniciarTren(){
-      tren=new Tren();
+      tren= new Tren(tren.getIdTren());
       tren.añadirVagon();
    }
 
@@ -131,11 +132,12 @@ public class Modelo {
 
       Iterator ite=tiquete.listaRutas().iterator();
       System.out.println("-------------TIQUETE DEL PASAJERO------------------");
+
       while (ite.hasNext()) {
          LinkedListNode rutass = (LinkedListNode) ite.next();
          RutaTren rutas= (RutaTren) rutass.getObject();
-         if(rutas.getTren()==tren){
-            System.out.println();
+         if(rutas.getTren().getIdTren()==tren.getIdTren()){
+            System.out.println(pasajero);
             System.out.println("Tren: " + rutas.getTren().getIdTren());
             System.out.println("Origen: " + rutas.getOrigen());
             System.out.println("Destino: " + rutas.getDestino());

@@ -11,7 +11,7 @@ public class Tren {
 
 	String idTren;
 	static int cantidadVagones=26; // son 40 vagones pero dos vagones de persona generan uno de carga 26/2=12 y 26+13=39 vagones ocupados
-	LinkedList<Vagon> listavagonesTren= new LinkedList(idTren);
+	LinkedList<Vagon> listavagonesTren= new LinkedList(1);
 
 	public Tren(String idTren ) {
 		this.idTren=idTren;
@@ -31,6 +31,7 @@ public class Tren {
 	public boolean añadirVagon() {// se añaden los vagones al tren
 		boolean vagones=false;
 		try {
+			vagon=new Vagon();
 			if(listavagonesTren.size()<cantidadVagones) {
 				if (vagon.listaPuestos().size()==vagon.getCantidadPersonas()){
 					listavagonesTren.add(vagon);
@@ -50,7 +51,7 @@ public class Tren {
 	public boolean vagonInicial() {
 		boolean vagones=false;
 		try {
-			if(listavagonesTren.isEmpty()) {
+			if(listavagonesTren.isEmpty()||listavagonesTren.size()==1) {
 				vagones=true;
 			}else {
 				return vagones;
