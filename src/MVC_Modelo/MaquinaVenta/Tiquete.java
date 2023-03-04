@@ -1,6 +1,7 @@
 package MVC_Modelo.MaquinaVenta;
 
 import Entidades.Personas.Pasajero;
+import Entidades.Personas.PersonaEmergencia;
 import Entidades.Tren.Tren;
 import Entidades.Tren.Vagon;
 import MVC_Modelo.Listas.LinkedList;
@@ -8,18 +9,22 @@ import Entidades.Tren.TipoPasajero;
 import Entidades.Tren.RutaTren;
 import MVC_Modelo.Listas.LinkedListNode;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Tiquete extends RutaTren {
+public class Tiquete {
 	
 	static int pesoMaximo=150;//por pasajero se puede llegar un peso e 150 en equipaje, se define como varibale static
-	private Vagon puesto;
+
 	private int pesoCarga;
 	private Pasajero idPasajero;
-	private TipoPasajero categoriaPasajero;//Tipos PREMIUN EJECUTIVO Y ECONOMICO
+
 	private int valorPasaje;
+	private PersonaEmergencia personaContactoEmergencia;
+	private Tren tren;
+	private RutaTren ruta;
 
 	LocalDateTime fechaHoraCompra= LocalDateTime.now();
 	Scanner entrada=new Scanner(System.in);
@@ -28,23 +33,22 @@ public class Tiquete extends RutaTren {
 
 	}
 
-	public Tiquete(Tren tren, String destino, String origen, LocalDateTime fechaSalida, LocalDateTime fechaLlegada, Vagon puesto,
-				   int pesoCarga, Pasajero idPasajero, TipoPasajero categoriaPasajero) {
-		super(tren,destino, origen, fechaSalida, fechaLlegada);
-		this.puesto = puesto;
-		this.pesoCarga = pesoCarga;
-		this.idPasajero = idPasajero;
-		this.categoriaPasajero = categoriaPasajero;
-		
+	public Tiquete(Tren tren,Pasajero personaPasjero, PersonaEmergencia personaEmergencia, int valorPasaje, int pesoCarga) {
+		this.tren= tren;
+		this.idPasajero=personaPasjero;
+		this.personaContactoEmergencia=personaEmergencia;
+		this.valorPasaje=valorPasaje;
+		this.pesoCarga=pesoCarga;
 	}
+
 
 	public LinkedList<RutaTren> listaRutas(){
 
 		LinkedList<RutaTren> rutasLista= new LinkedList();
 		
 		//RUTAS DE BGA A BOGOTA
-		Tren tren=new Tren("001");;
-		RutaTren ruta= new RutaTren(tren,"Bucaramanga","Bogota",
+		tren=new Tren("001");;
+		ruta= new RutaTren(tren,"Bucaramanga","Bogota",
 				LocalDateTime.of(2023, 03, 01, 6, 0),
 				LocalDateTime.of(2023, 03, 01, 1, 0));
 		rutasLista.add(ruta);
@@ -116,8 +120,6 @@ public class Tiquete extends RutaTren {
 
 	}
 	public Tren elegirRuta(int numeroTren){
-		Tren tren = null;
-
 		switch (numeroTren){
 			case 1:
 				tren.setIdTren("001");
@@ -170,33 +172,49 @@ public class Tiquete extends RutaTren {
 	}
 
 
+	LinkedList<Tiquete> listaTiquetes =new LinkedList();// se implementa la lista de tiquetes para la venta
+	public LinkedList<Tiquete> listaTiquetes(){
 
-
-
-
-
-
-
-	
-	
-	public Vagon getPuesto() {
-		return puesto;
+		return listaTiquetes;
 	}
-	public void setPuesto(Vagon puesto) {
-		this.puesto = puesto;
+
+	public Tiquete generarTiquete(Pasajero pasajero,PersonaEmergencia personaEmergencia, Tren idTren){
+		Tiquete tiquete = new Tiquete();
+		Iterator ite=tiquete.listaRutas().iterator();
+		while (ite.hasNext()) {
+			LinkedListNode rutass = (LinkedListNode) ite.next();
+			RutaTren rutas= (RutaTren) rutass.getObject();
+			if(rutas.getTren()==idTren){
+				tiquete=new Tiquete( idTren, pasajero,personaEmergencia, tiquete.getPesoCarga(), tiquete.getValorPasaje());
+			}
+		}
+		agregarTiquete(tiquete);
+		return tiquete;
 	}
+
+	public boolean agregarTiquete(Tiquete tiquete) {
+
+		boolean tiqueteAgregado=false;
+		try {
+			if(tiquete.validarTiquete(tiquete.getPesoCarga())) {
+				listaTiquetes.add(tiquete);
+				tiqueteAgregado=true;
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return tiqueteAgregado;
+	}
+
+
+
 	public Pasajero getIdPasajero() {
 		return idPasajero;
 	}
 	public void setIdPasajero(Pasajero idPasajero) {
 		this.idPasajero = idPasajero;
 	}
-	public TipoPasajero getCategoriaPasajero() {
-		return categoriaPasajero;
-	}
-	public void setCategoriaPasajero(TipoPasajero categoriaPasajero) {
-		this.categoriaPasajero = categoriaPasajero;
-	}
+
 	public LocalDateTime getFechaHoraCompra() {
 		return fechaHoraCompra;
 	}
@@ -207,7 +225,7 @@ public class Tiquete extends RutaTren {
 		return valorPasaje;
 	}
 	public void setValorPasaje(String categoria) {
-		this.valorPasaje=categoriaPasajero.definirPasajero(categoria.toLowerCase());
+		this.valorPasaje=idPasajero.getTipoPasajero().definirPasajero(categoria);
 	}
 	public int getPesoCarga() {
 		return pesoCarga;

@@ -1,12 +1,12 @@
 package Entidades.Tren;
 
 public class TipoPasajero {
-	String eco;
-	String premium;
-	String ejecutivo;
+	String eco="economico";
+	String premium="premium";
+	String ejecutivo="Ejecutivo";
 
-	public TipoPasajero(String pasajero) {
-		definirPasajero(pasajero);
+	public TipoPasajero(String tipopasajero) {
+		definirPasajeroClase(tipopasajero);
 
 	}
 
@@ -22,6 +22,19 @@ public class TipoPasajero {
 			valorPasaje= 200000;
 		}
 		return valorPasaje;
+	}
+	public String definirPasajeroClase(String pasajeroTipo) {
+		String tipo="";
+		if(pasajeroTipo.toLowerCase()==eco) {
+			tipo= eco;
+		}
+		if(pasajeroTipo.toLowerCase()==premium) {
+			tipo= premium;
+		}
+		if(pasajeroTipo.toLowerCase()==ejecutivo) {
+			tipo= ejecutivo;
+		}
+		return tipo;
 	}
 
 }

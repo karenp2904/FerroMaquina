@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class RutaTren {
 	
 	String destino;
-	String origen="Bucaramanga";
+	String origen;
 	LocalDateTime fechaSalida;
 	LocalDateTime fechaLlegada;
 	Tren tren;

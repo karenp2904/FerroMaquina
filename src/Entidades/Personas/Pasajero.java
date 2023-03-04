@@ -2,7 +2,7 @@ package Entidades. Personas;
 
 import Entidades.Tren.TipoPasajero;
 
-public class Pasajero extends Persona {
+public class Pasajero extends Persona{
 
 
 	public Pasajero(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion, Direccion direccionActual, int telefono, int idRegistro, TipoPasajero pasajero) {
@@ -10,7 +10,6 @@ public class Pasajero extends Persona {
 		this.idRegistro = idRegistro;
 		this.tipoPasajero=tipoPasajero;
 	}
-
 
 
 	private int idRegistro;
@@ -23,17 +22,13 @@ public class Pasajero extends Persona {
 	public void setIdRegistro(int idRegistro) {
 		this.idRegistro = idRegistro;
 	}
-	
-	
-	
-	
-	
-	
 
 
-	
-	
+	public TipoPasajero getTipoPasajero() {
+		return tipoPasajero;
+	}
 
-	
-
+	public void setTipoPasajero(TipoPasajero tipoPasajero) {
+		this.tipoPasajero = tipoPasajero;
+	}
 }

@@ -132,6 +132,7 @@ public class Vista {
 			controlador.desplejarTodasRutasControl();
 			//mostrarOpcionesElegirRuta();
 		}
+
 		public int mostrarOpcionesElegirRuta() {//se muestran las opciones de trenes, pero antes se desplegaron las rutas
 			Scanner entrada=new Scanner(System.in);
 			int numeroTren = 0;
@@ -173,6 +174,7 @@ public class Vista {
 
 			return tipo;
 		}
+
 
 
 }

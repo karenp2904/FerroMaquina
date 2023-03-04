@@ -2,8 +2,11 @@ package MVC_Controlador;
 
 import Entidades.Personas.Direccion;
 import Entidades.Tren.TipoPasajero;
+import MVC_Modelo.MaquinaVenta.Tiquete;
 import MVC_Modelo.Modelo.Modelo;
 import MVC_Vista.Vista;
+
+import java.time.LocalDateTime;
 
 public class Controlador  {
 	private Modelo modelo;
@@ -47,7 +50,7 @@ public class Controlador  {
 
 		int idRegistro=numeroIde;
 		String eleecion= vista.elegirPasajeroDeTiquete();
-		TipoPasajero pasajeroTipo=modelo.tipoPasajeroEscoger(eleecion);
+		TipoPasajero pasajeroTipo=modelo.tipoPasajeroEscogerNombre(eleecion);
 		añadirPersona(nombre, apellido, tipoId, numeroIde,direccionActual,telefono,idRegistro,pasajeroTipo);
 		solicitarDatosEmergencia();
 	}
@@ -75,6 +78,13 @@ public class Controlador  {
 		modelo.añadirPasajeroVagon(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono,idRegistro,tipoPasajeroo);
 
 
+	}
+	public void generarTiqueteControl(){
+		modelo.agregarTiqueteMod();
+	}
+
+	public LocalDateTime getHoraCompraMode(){
+		return modelo.getHoraCompraMode();
 	}
 
 

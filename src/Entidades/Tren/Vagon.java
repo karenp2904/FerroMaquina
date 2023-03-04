@@ -11,7 +11,7 @@ public class Vagon {
 	static int cantidadPersonas = 30;// por cada vagon 30 personas
 
 	LinkedList<Pasajero> listaPuestos = new LinkedList();
-	Tren tren=new Tren();
+	Tren tren;
 	Pasajero pasajero;
 
 	public Vagon(Pasajero pasajero) {
@@ -42,6 +42,7 @@ public class Vagon {
 	public boolean añadirPasajero(Pasajero pasajero) {
 		boolean añadido = false;
 		try {
+			tren= new Tren(tren.getIdTren());
 			if (tren.vagonInicial()) {
 				cantidadPersonas = 26;
 			}

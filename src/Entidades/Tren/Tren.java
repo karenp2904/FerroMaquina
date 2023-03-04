@@ -20,7 +20,7 @@ public class Tren {
 	public Tren(){
 
 	}
-	Vagon vagon= new Vagon();
+	Vagon vagon;
 	public String getIdTren() {
 		return idTren;
 	}
@@ -109,7 +109,7 @@ public class Tren {
 				RutaTren rutas= (RutaTren) rutass.getObject();//rutas
 				if(rutas.getTren().getIdTren()==idTren){// si el idtren e igual ala ruta que esta
 					System.out.println("Se encuentra en el tren "+ rutas.getTren().getIdTren());
-					if(pasajero.getIdRegistro()!=0){//si el resgistro es igual
+					if(pasajero.getIdRegistro()!=0){//si el resgistro no es 0
 						int vagonEncontrado=buscarVagon(pasajero.getIdRegistro());//buscara en los vagones y retornara el vagon donde esta
 						System.out.println("Se encuentra en el vagon " + vagonEncontrado);
 						int puesto=vagon.buscarPasajero(pasajero.getIdRegistro());
@@ -125,11 +125,7 @@ public class Tren {
 			}
 	}
 
-
-
-
-
-	@SuppressWarnings("finally")
+	//limite
 	public boolean vagonesPermitidosPersona(int vagon) {
 		boolean vagonesPermitidos=false;
 		try {
