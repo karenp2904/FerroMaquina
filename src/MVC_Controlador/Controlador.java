@@ -6,8 +6,8 @@ import MVC_Modelo.Modelo.Modelo;
 import MVC_Vista.Vista;
 
 public class Controlador  {
-	private Modelo modelo=new Modelo();
-	private Vista vista=new Vista();
+	private Modelo modelo;
+	private Vista vista;
 	
 	public Controlador(Modelo modelo, Vista vista) {
 		super();
@@ -20,9 +20,11 @@ public class Controlador  {
 
 	public void start(){
 		vista.bienvenida();
+		solicitarDatos();
 	}
 	public void mostrarRutastren(){
 		modelo.desplegarRutastren();
+		eleecionRuta();
 	}
 	public void eleecionRuta(){
 		int numerotren=vista.mostrarOpcionesElegirRuta();
@@ -43,10 +45,11 @@ public class Controlador  {
 
 		int telefono= vista.ingresarNumTelefonico();
 
-		int idRegistro=modelo.definirId(numeroIde);
-		TipoPasajero pasajeroTipo=modelo.tipoPasajeroEscoger(vista.elegirPasajeroDeTiquete());
+		int idRegistro=numeroIde;
+		String eleecion= vista.elegirPasajeroDeTiquete();
+		TipoPasajero pasajeroTipo=modelo.tipoPasajeroEscoger(eleecion);
 		añadirPersona(nombre, apellido, tipoId, numeroIde,direccionActual,telefono,idRegistro,pasajeroTipo);
-
+		solicitarDatosEmergencia();
 	}
 
 	public void solicitarDatosEmergencia(){
@@ -60,7 +63,7 @@ public class Controlador  {
 		int telefono= vista.ingresarNumTelefonicoEmergencia();
 		Direccion direccionActual=modelo.definirDireccion(ciudad,calle,carrera);
 		añadirContactoEmergencia(nombre, apellido, tipoId, numeroIde,direccionActual,telefono);
-
+		mostrarRutastren();
 	}
 	public void añadirContactoEmergencia(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
 										 Direccion direccionActual, int telefono){

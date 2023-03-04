@@ -11,6 +11,8 @@ public class Pasajero extends Persona {
 		this.tipoPasajero=tipoPasajero;
 	}
 
+
+
 	private int idRegistro;
 	private TipoPasajero tipoPasajero;
 

@@ -16,7 +16,7 @@ import java.util.Iterator;
 
 
 public class Modelo {
-   private Controlador controlador=new Controlador();
+   private Controlador controlador;
    private Tiquete tiquete;
    private Vagon vagon;
    private Tren tren;
@@ -24,7 +24,14 @@ public class Modelo {
    private Pasajero pasajero;
    private TipoPasajero tipoDePasajero;
 
-   public Direccion definirDireccion(String ciudad,String calle, String carrera){
+   public Modelo(Controlador controlador) {
+      this.controlador = controlador;
+   }
+   public Modelo(){
+
+   }
+
+   public Direccion definirDireccion(String ciudad, String calle, String carrera){
       Direccion direccion1=new Direccion(ciudad,calle,carrera);
       return direccion1;
    }
