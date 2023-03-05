@@ -125,7 +125,7 @@ public class Modelo {
    }
 
    public void guardarInformacion(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion, Direccion direccionActual, int telefono){
-      persona=new Persona(nombre,apellido,numeroIdentificacion,tipoIdentificacion,direccionActual,telefono);
+      persona=new Persona(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono);
 
    }
 
