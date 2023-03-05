@@ -11,39 +11,25 @@ public class Vagon {
 	static int cantidadPersonas = 30;// por cada vagon 30 personas
 
 	LinkedList<Pasajero> listaPuestos = new LinkedList(1);
-	Tren tren;
+	RutaTren tren;
+
 	Pasajero pasajero;
 
-	public Vagon(Pasajero pasajero) {
-		añadirPasajero(pasajero);
-	}
 	public Vagon(){
+		tren = new RutaTren();
 	}
 	public int getCantidadPersonas(){
 		return cantidadPersonas;
 	}
 
 	public LinkedList<Pasajero> listaPuestos(){
-		try{
-			Iterator ite=listaPuestos().iterator();
-			while (ite.hasNext()) {
-				LinkedListNode puestoPasajero= (LinkedListNode) ite.next();
-				Pasajero pasajero= (Pasajero) puestoPasajero.getObject();
-			}
-		}catch (Exception e){
-			e.printStackTrace();
-		}finally {
-			return listaPuestos;
-		}
-
+		return listaPuestos;
 	}
 
-
-	public boolean añadirPasajero(Pasajero pasajero) {
+	public boolean añadirPasajero(Pasajero pasajero, RutaTren tren) {
 		boolean añadido = false;
 		try {
-			tren= new Tren(tren.getIdTren());
-			if (tren.vagonInicial()) {
+			if (tren.getTren().vagonInicial()) {
 				cantidadPersonas = 26;
 			}
 			if (listaPuestos.size() <= cantidadPersonas) {

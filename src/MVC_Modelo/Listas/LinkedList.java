@@ -531,6 +531,7 @@ public class LinkedList<T> implements List<T> {
    			if(nodoEliminado==null) {
    				if(nodoEliminado.prev==null) {
    					head=head.next;// el nodo sera la cabeza
+					head.prev=null;
    					//System.out.println(head.getObject() + " aca" );
    				}
    				if(nodoEliminado.next==null) {

@@ -121,7 +121,6 @@ public class Tren {
 		} catch (Exception e){
 			e.printStackTrace();
 		}finally {
-
 			return contarVagones;
 			}
 	}

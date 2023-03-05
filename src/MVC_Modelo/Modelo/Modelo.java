@@ -29,6 +29,8 @@ public class Modelo {
    private RutaTren rutas;
    private Persona persona;
 
+
+
    public Modelo(Controlador controlador) {
       this.controlador = controlador;
    }
@@ -65,11 +67,11 @@ public class Modelo {
    public RutaTren definirRuta(int numerotren){
       rutas=tiquete.elegirRuta(numerotren);
       iniciarTren();
+      agregarTiqueteMod();
       return rutas;
    }
    public void iniciarTren(){
-      tren= new Tren(tren.getIdTren());
-      tren.añadirVagon();
+      rutas.getTren().añadirVagon();
    }
 
    //se añade el pasajero
@@ -77,7 +79,7 @@ public class Modelo {
       pasajero=new Pasajero(nombre, apellido, tipoIdentificacion,  numeroIdentificacion, direccionActual, telefono, idRegistro,tipoPasajeros);
      //vagon=new Vagon(pasajero);
       definirPasajero();
-      return  vagon.añadirPasajero(pasajero);
+      return  vagon.añadirPasajero(pasajero,rutas);
    }
 
    //se añade al contacto de emergencia
@@ -94,7 +96,7 @@ public class Modelo {
 
    //se busca al pasajero en el tren
       public int buscarPasajeroTrenMod(String idTren) {
-         return tren.buscarEnTren(idTren,pasajero);// se usa el pasjero actual
+         return rutas.getTren().buscarEnTren(idTren,pasajero);// se usa el pasjero actual
       }
 
       // se define el precio del pasajero segun su eleccion
@@ -110,6 +112,7 @@ public class Modelo {
 
    //se añade un vagon al tren
    public boolean añadirVagonTren (){
+
          boolean varible=tren.añadirVagon();
          return varible;
    }
@@ -124,19 +127,12 @@ public class Modelo {
 
    }
 
-
-
-
    //añadir tiquete
    public void agregarTiqueteMod(){
 
       Iterator ite=tiquete.listaRutas().iterator();
       System.out.println("-------------TIQUETE DEL PASAJERO------------------");
 
-      while (ite.hasNext()) {
-         LinkedListNode rutass = (LinkedListNode) ite.next();
-         RutaTren rutas= (RutaTren) rutass.getObject();
-         if(rutas.getTren().getIdTren()==tren.getIdTren()){
             System.out.println(pasajero);
             System.out.println("Tren: " + rutas.getTren().getIdTren());
             System.out.println("Origen: " + rutas.getOrigen());
@@ -144,9 +140,9 @@ public class Modelo {
             System.out.println("Fecha de salida: " + rutas.getFechaSalida());
             System.out.println("Fecha de llegada: " + rutas.getFechaLlegada());
             System.out.println("---------------------------------------------");
-         }
+
          tiquete.generarTiquete(pasajero,contactoEmergencia,tren);
-      }
+
    }
 
    }
