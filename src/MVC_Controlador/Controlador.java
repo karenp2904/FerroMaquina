@@ -26,12 +26,13 @@ public class Controlador  {
 		solicitarDatos();
 	}
 	public void desplejarTodasRutasControl(){
-		modelo.desplegarRutastren();
+		//modelo.desplegarRutastren();
 		eleecionRuta();
 	}
 	public void eleecionRuta(){
-		int numerotren=vista.mostrarOpcionesElegirRuta();
-		modelo.definirRuta(numerotren);
+		//int numerotren=vista.mostrarOpcionesElegirRuta();
+		//modelo.definirRuta(numerotren);
+
 	}
 
 	public void solicitarDatos(){
@@ -51,9 +52,14 @@ public class Controlador  {
 		String idRegistro=numeroIde;
 		String eleecion= vista.elegirPasajeroDeTiquete();
 		TipoPasajero pasajeroTipo=modelo.tipoPasajeroEscogerNombre(eleecion);
+
+		int precioo=modelo.getPrecioTipoPasajero(eleecion);
+		int precio=modelo.precioTipoPasajeroMod(eleecion);
 		pesoCargaControl();
-		añadirPersona(nombre, apellido, tipoId,numeroIde,direccionActual,telefono,idRegistro,pasajeroTipo);
 		solicitarDatosEmergencia();
+		int tren=vista.mostrarOpcionesElegirRuta();
+		añadirPersona(tren,nombre, apellido, tipoId,numeroIde,direccionActual,telefono,idRegistro,pasajeroTipo);
+
 	}
 
 
@@ -71,22 +77,29 @@ public class Controlador  {
 
 		this.desplejarTodasRutasControl();
 	}
-	public int pesoCargaControl(){
-		return vista.ingresarPesoDeCarga();
+
+	public void pesoCargaControl(){
+		int peso= vista.ingresarPesoDeCarga();
+		modelo.getPesoCargaMode(peso);
+	}
+	public void valorPasajeControl(){
+		String eleccion=vista.elegirPasajeroDeTiquete();
+		modelo.precioTipoPasajeroMod(eleccion);
+		modelo.getPrecioTipoPasajero(eleccion);
 	}
 	public void añadirContactoEmergencia(String nombre, String apellido, String tipoIdentificacion, String numeroIdentificacion,
 										 Direccion direccionActual, String telefono){
 		modelo.añadirContactoEmergencia(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono);
 
 	}
-	public void añadirPersona(String nombre, String apellido, String tipoIdentificacion, String numeroIdentificacion,
+	public void añadirPersona(int tren, String nombre, String apellido, String tipoIdentificacion, String numeroIdentificacion,
 							  Direccion direccionActual, String telefono, String idRegistro, TipoPasajero tipoPasajeroo){
-		modelo.añadirPasajeroVagon(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono,idRegistro,tipoPasajeroo);
+		modelo.añadirPasajeroVagon(tren,nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono,idRegistro,tipoPasajeroo);
 
 
 	}
 	public void generarTiqueteControl(){
-		modelo.agregarTiqueteMod();
+		//modelo.agregarTiqueteMod();
 	}
 
 	public LocalDateTime getHoraCompraMode(){

@@ -13,6 +13,10 @@ public class Tren {
 	static int cantidadVagones=26; // son 40 vagones pero dos vagones de persona generan uno de carga 26/2=12 y 26+13=39 vagones ocupados
 	LinkedList<Vagon> listavagonesTren= new LinkedList(1);
 
+	//para los puestos de las personas
+	static int cantidadPersonas = 30;// por cada vagon 30 personas
+
+	LinkedList<Pasajero> listaPuestos = new LinkedList(1);
 	public Tren(String idTren ) {
 		this.idTren=idTren;
 	}
@@ -78,7 +82,7 @@ public class Tren {
 						while (iterator.hasNext()) {//itera sobre la lista de puestos en el vagon
 							pasajeroAux = (LinkedListNode<Pasajero>) ite.next();
 							Pasajero passe = (Pasajero) pasajeroAux.getObject();
-							if (passe.getIdRegistro() == idRegistro) {// si en el vagon se encuentra el pasajero retorna
+							if (passe.getIdRegistro().equals(idRegistro)) {// si en el vagon se encuentra el pasajero retorna
 								pasajeroEnVagon = true;
 								return contarVagon;
 							}
@@ -103,12 +107,11 @@ public class Tren {
 		int contarVagones=1;
 		try {
 			Tiquete tiquete=new Tiquete();
-			Vagon vagon= new Vagon();
 			Iterator ite=tiquete.listaRutas().iterator();//iterar sobre los trenes
 			while (ite.hasNext()) {
 				LinkedListNode rutass = (LinkedListNode) ite.next();
 				RutaTren rutas= (RutaTren) rutass.getObject();//rutas
-				if(rutas.getTren().getIdTren()==idTren){// si el idtren e igual ala ruta que esta
+				if(rutas.getTren().getIdTren().equals(idTren)){// si el idtren e igual ala ruta que esta
 					System.out.println("Se encuentra en el tren "+ rutas.getTren().getIdTren());
 					if(pasajero.getIdRegistro()!=null){//si el resgistro no es 0
 						int vagonEncontrado=buscarVagon(pasajero.getIdRegistro());//buscara en los vagones y retornara el vagon donde esta
@@ -138,6 +141,26 @@ public class Tren {
         }finally{
             return vagonesPermitidos; 
         }	
+	}
+
+	public boolean añadirPasajero(Pasajero pasajero, RutaTren tren) {
+		boolean añadido = false;
+		try {
+			if (tren.getTren().vagonInicial()) {
+				cantidadPersonas = 26;
+			}
+			if (listaPuestos.size() <= cantidadPersonas) {
+				listaPuestos.add(pasajero);
+				añadido = true;
+			}
+			if(listaPuestos.size()>cantidadPersonas){
+				listavagonesTren.add(vagon);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			return añadido;
+		}
 	}
 
 

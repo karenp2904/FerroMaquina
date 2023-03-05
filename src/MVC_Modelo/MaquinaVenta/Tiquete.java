@@ -10,6 +10,7 @@ import Entidades.Tren.RutaTren;
 import MVC_Modelo.Listas.LinkedListNode;
 import MVC_Modelo.Listas.Node;
 
+import javax.print.DocFlavor;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.time.LocalDateTime;
 import java.util.Iterator;
@@ -257,7 +258,9 @@ public class Tiquete {
 		return valorPasaje;
 	}
 	public void setValorPasaje(String categoria) {
-		this.valorPasaje=idPasajero.getTipoPasajero().definirPasajero(categoria);
+		TipoPasajero tipoPasajero=new TipoPasajero(categoria);
+		tipoPasajero.definirPasajeroClase(categoria);
+		this.valorPasaje=tipoPasajero.definirValorPasajero(categoria);
 	}
 	public int getPesoCarga() {
 		return pesoCarga;

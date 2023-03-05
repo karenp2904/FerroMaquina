@@ -10,6 +10,7 @@ public class RutaTren {
 	LocalDateTime fechaLlegada;
 	Tren tren;
 
+
 	public RutaTren() {
 	}
 

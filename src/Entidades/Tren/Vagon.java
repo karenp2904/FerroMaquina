@@ -25,22 +25,7 @@ public class Vagon {
 		return listaPuestos;
 	}
 
-	public boolean añadirPasajero(Pasajero pasajero, RutaTren tren) {
-		boolean añadido = false;
-		try {
-			if (tren.getTren().vagonInicial()) {
-				cantidadPersonas = 26;
-			}
-			if (listaPuestos.size() <= cantidadPersonas) {
-				listaPuestos.add(pasajero);
-				añadido = true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			return añadido;
-		}
-	}
+
 
 	public int buscarPasajero(String  idRegistro) {
 		boolean pasajeroEnVagon = false;
@@ -52,7 +37,7 @@ public class Vagon {
 				while (ite.hasNext()) {
 					pasajeroAux= (LinkedListNode<Pasajero>) ite.next();
 					Pasajero passe= (Pasajero) pasajeroAux.getObject();
-					if (passe.getIdRegistro() == idRegistro) {
+					if (passe.getIdRegistro().equals(idRegistro)) {
 						pasajeroEnVagon = true;
 						return contarPuesto;
 					} else {

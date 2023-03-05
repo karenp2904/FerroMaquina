@@ -162,16 +162,28 @@ public class Vista {
 		}
 
 		public String elegirPasajeroDeTiquete(){
-			String tipo;
-			System.out.println("Tipos de tarifas disponibles"+
-					"\nEjecutivo" +
-					"\nPremium" +
-					"\nEcomonico" +
-					"\nIngrese el tipo que desea: ");
-			tipo=sc.next().toString().toLowerCase();
+				String tipo=null; int intentar=0;
+				do {
+					System.out.println("Ingrese su tipo de tarifa segun las disponibles" +
+							"\nEjecutivo" +
+							"\nPremium" +
+							"\nEcomonico" +
+							"\nIngrese el tipo que desea: ");
+					tipo = sc.next().toString().toLowerCase();
+					if (tipo.equals("ejecutivo") || tipo.equals("premium") || tipo.equals("economico")) {
+						return tipo;
+					} else {
+						System.out.println("Ha ingresado una tarifa incorrecta, intente de nuevo :(");
+						intentar = 1;
+					}
+				}while (intentar==1);
 
-			return tipo;
-		}
+				if (tipo == "ejecutivo" || tipo == "ecomonico" || tipo == "premium") {
+					return tipo;
+				}else{
+					return null;
+				}
+			}
 
 
 
