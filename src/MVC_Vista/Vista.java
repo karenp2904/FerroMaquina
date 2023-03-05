@@ -152,7 +152,7 @@ public class Vista {
 			return numeroTren;
 		}
 		public int  ingresarPesoDeCarga(){// se ingresa el peso de carga
-			int peso=0;
+			int peso;
 			do {
 				System.out.println("Ingreso el peso de su equipaje");
 				peso = sc.nextInt();
