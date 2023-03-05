@@ -12,6 +12,7 @@ public class Pasajero extends Persona{
 	}
 
 
+
 	private int idRegistro;
 	private TipoPasajero tipoPasajero;
 

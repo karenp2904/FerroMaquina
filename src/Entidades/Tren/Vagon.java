@@ -11,12 +11,11 @@ public class Vagon {
 	static int cantidadPersonas = 30;// por cada vagon 30 personas
 
 	LinkedList<Pasajero> listaPuestos = new LinkedList(1);
-	RutaTren tren;
 
 	Pasajero pasajero;
 
 	public Vagon(){
-		tren = new RutaTren();
+
 	}
 	public int getCantidadPersonas(){
 		return cantidadPersonas;

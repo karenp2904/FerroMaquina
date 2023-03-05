@@ -51,50 +51,50 @@ public class Tiquete {
 		tren=new Tren("001");;
 		ruta= new RutaTren(tren,"Bucaramanga","Bogota",
 				LocalDateTime.of(2023, 03, 01, 6, 0),
-				LocalDateTime.of(2023, 03, 01, 1, 0));
+				LocalDateTime.of(2023, 03, 01, 13, 0));
 		rutasLista.add(ruta);
 		
 		tren=new Tren("002");;
 		ruta= new RutaTren(tren,"Bucaramanga","Bogota",
 				LocalDateTime.of(2023, 03, 01, 9, 0),
-				LocalDateTime.of(2023, 03, 01, 5, 0));
+				LocalDateTime.of(2023, 03, 01, 17, 0));
 		rutasLista.add(ruta);
 		
 		tren=new Tren("003");;
 		ruta= new RutaTren(tren,"Bucaramanga","Bogota",
 				LocalDateTime.of(2023, 03, 01, 11, 0),
-				LocalDateTime.of(2023, 03, 01, 7, 0));
+				LocalDateTime.of(2023, 03, 01, 19, 0));
 		rutasLista.add(ruta);
 		
 		tren=new Tren("004");;
 		ruta= new RutaTren(tren,"Bucaramanga","Bogota",
 				LocalDateTime.of(2023, 03, 01, 1, 0),
-				LocalDateTime.of(2023, 03, 01, 9, 0));
+				LocalDateTime.of(2023, 03, 01, 21, 0));
 		rutasLista.add(ruta);
 		
 		//RUTAS DE BGA A BARRAQUILLA
 		tren=new Tren("005");;
 		ruta= new RutaTren(tren,"Bucaramanga","Barranquilla",
 				LocalDateTime.of(2023, 03, 01, 6, 0),
-				LocalDateTime.of(2023, 03, 01, 1, 0));
+				LocalDateTime.of(2023, 03, 01, 13, 0));
 		rutasLista.add(ruta);
 		
 		tren=new Tren("006");;
 		ruta= new RutaTren(tren,"Bucaramanga","Bogota",
 				LocalDateTime.of(2023, 03, 01, 9, 0),
-				LocalDateTime.of(2023, 03, 01, 5, 0));
+				LocalDateTime.of(2023, 03, 01, 17, 0));
 		rutasLista.add(ruta);
 		
 		tren=new Tren("007");;
 		ruta= new RutaTren(tren,"Bucaramanga","Bogota",
 				LocalDateTime.of(2023, 03, 01, 11, 0),
-				LocalDateTime.of(2023, 03, 01, 7, 0));
+				LocalDateTime.of(2023, 03, 01, 19, 0));
 		rutasLista.add(ruta);
 		
 		tren=new Tren("008");;
 		ruta= new RutaTren(tren,"Bucaramanga","Bogota",
 				LocalDateTime.of(2023, 03, 01, 1, 0),
-				LocalDateTime.of(2023, 03, 01, 9, 0));
+				LocalDateTime.of(2023, 03, 01, 21, 0));
 		rutasLista.add(ruta);
 		
 		return rutasLista;	

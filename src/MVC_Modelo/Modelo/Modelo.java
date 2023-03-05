@@ -27,7 +27,7 @@ public class Modelo {
    private Pasajero pasajero;
    private TipoPasajero tipoDePasajero;
    private RutaTren rutas;
-   private Persona persona;
+   private Persona persona= new Persona();
 
 
 
@@ -94,8 +94,9 @@ public class Modelo {
       return pasajero.getIdRegistro();
    }
 
+
    //se busca al pasajero en el tren
-      public int buscarPasajeroTrenMod(String idTren) {
+      public int buscarPasajeroTrenMod(String idTren, Pasajero pasajero) {
          return rutas.getTren().buscarEnTren(idTren,pasajero);// se usa el pasjero actual
       }
 
@@ -124,24 +125,43 @@ public class Modelo {
    }
 
    public void guardarInformacion(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion, Direccion direccionActual, int telefono){
+      persona=new Persona(nombre,apellido,numeroIdentificacion,tipoIdentificacion,direccionActual,telefono);
 
    }
 
    //añadir tiquete
    public void agregarTiqueteMod(){
-
-      Iterator ite=tiquete.listaRutas().iterator();
       System.out.println("-------------TIQUETE DEL PASAJERO------------------");
+      System.out.println("     Datos del Pasajero     ");
+      System.out.println("\nNombre: " + persona.getNombre());
+      System.out.println("Apellido: " + persona.getApellido());
+      System.out.println("Direccion: " + persona.getDireccionActual());
+      System.out.println("Tipo identificación: " + persona.getTipoIdentificacion());
+      System.out.println("Numero identificación: " +pasajero.getIdRegistro());// el registro es igual a la identificacion
+      System.out.println("Telefono: " + persona.getTelefono());
+      System.out.println();
+      System.out.println("Id registro: " + pasajero.getIdRegistro());
+      System.out.println("Peso de carga: "+ getPesoCargaMode());
+      System.out.println("Precio: "+ tiquete.getValorPasaje());
+      System.out.println("Tipo pasajero: " + pasajero.getTipoPasajero());
 
-            System.out.println(pasajero);
-            System.out.println("Tren: " + rutas.getTren().getIdTren());
-            System.out.println("Origen: " + rutas.getOrigen());
-            System.out.println("Destino: " + rutas.getDestino());
-            System.out.println("Fecha de salida: " + rutas.getFechaSalida());
-            System.out.println("Fecha de llegada: " + rutas.getFechaLlegada());
-            System.out.println("---------------------------------------------");
+      System.out.println("     Datos del contacto de emergencia     ");
+      System.out.println("\nNombre: " + contactoEmergencia.getNombre());
+      System.out.println("Apellido: " + contactoEmergencia.getApellido());
+      System.out.println("Direccion: " + contactoEmergencia.getDireccionActual());
+      System.out.println("Tipo identificación: " + contactoEmergencia.getTipoIdentificacion());
+      System.out.println("Numero identificación: " + contactoEmergencia.getNumeroIdentificacion());// el registro es igual a la identificacion
+      System.out.println("Telefono: " + contactoEmergencia.getTelefono());
 
-         tiquete.generarTiquete(pasajero,contactoEmergencia,tren);
+      System.out.println("     Datos del tren     ");
+      System.out.println("Tren: " + rutas.getTren().getIdTren());
+      System.out.println("Origen: " + rutas.getOrigen());
+      System.out.println("Destino: " + rutas.getDestino());
+      System.out.println("Fecha de salida: " + rutas.getFechaSalida());
+      System.out.println("Fecha de llegada: " + rutas.getFechaLlegada());
+      System.out.println("---------------------------------------------");
+
+      tiquete.generarTiquete(pasajero,contactoEmergencia,tren);
 
    }
 
