@@ -174,9 +174,9 @@ public class Modelo {
       persona=new Persona(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono);
 
       System.out.println("-------------TIQUETE DEL PASAJERO------------------");
-      System.out.println("             Datos del Pasajero     ");
-      System.out.println();
       System.out.println("Id registro: " + pasajero.getIdRegistro());
+      System.out.println("---------------------------------------------------");
+      System.out.println("             Datos del Pasajero     ");
       System.out.println("\nNombre: " + persona.getNombre());
       System.out.println("Apellido: " + persona.getApellido());
       System.out.println("Direccion: " + persona.getDireccionActual().getCiudad());
@@ -188,7 +188,7 @@ public class Modelo {
       System.out.println("Precio: "+ tipoDePasajero.getValorTipoPasajero());
       System.out.println("Tipo pasajero: " + tipoDePasajero.getTipoPasajeroEscogido());
 
-      System.out.println("---------------------------------------------");
+      System.out.println("-------------------------------------------------");
       System.out.println("       Datos del contacto de emergencia     ");
       System.out.println("\nNombre: " + contactoEmergencia.getNombre());
       System.out.println("Apellido: " + contactoEmergencia.getApellido());
@@ -196,7 +196,7 @@ public class Modelo {
       System.out.println("Tipo identificación: " + contactoEmergencia.getTipoIdentificacion());
       System.out.println("Numero identificación: " + contactoEmergencia.getNumeroIdentificacion());// el registro es igual a la identificacion
       System.out.println("Telefono: " + contactoEmergencia.getTelefono());
-      System.out.println("---------------------------------------------");
+      System.out.println("------------------------------------------------");
       System.out.println("             Datos del tren     ");
       System.out.println("Tren: " + rutas.getTren().getIdTren());
       System.out.println("Origen: " + rutas.getOrigen());
@@ -204,12 +204,12 @@ public class Modelo {
       System.out.println("Hora de compra: "+ tiquete.getFechaHoraCompra());
       System.out.println("Fecha de salida: " + rutas.getFechaSalida());
       System.out.println("Fecha de llegada: " + rutas.getFechaLlegada());
-      System.out.println("---------------------------------------------");
+      System.out.println("------------------------------------------------");
 
       tiquete.generarTiquete(pasajero,contactoEmergencia,tren);
       generarArchivoXML("InformacionPasajero");
 
-      System.out.println("----------------------------------------------");
+      System.out.println("------------------------------------------------");
       //rutas.getTren().buscarEnTren(rutas.getTren().getIdTren(),pasajero);
 
    }
