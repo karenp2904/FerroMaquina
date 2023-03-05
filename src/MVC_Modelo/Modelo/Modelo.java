@@ -174,8 +174,8 @@ public class Modelo {
       persona=new Persona(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono);
 
       System.out.println("-------------TIQUETE DEL PASAJERO------------------");
-
       System.out.println("             Datos del Pasajero     ");
+      System.out.println();
       System.out.println("Id registro: " + pasajero.getIdRegistro());
       System.out.println("\nNombre: " + persona.getNombre());
       System.out.println("Apellido: " + persona.getApellido());
