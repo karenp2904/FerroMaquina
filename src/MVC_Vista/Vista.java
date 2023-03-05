@@ -40,9 +40,9 @@ public class Vista {
 			//ingresarNumeroIdentificacion();
 			return tipoIdentificacion;
 		}
-		public int ingresarNumeroIdentificacion(){
+		public String ingresarNumeroIdentificacion(){
 			System.out.println("Ingrese su numero de identificacion: ");
-			int numero=sc.nextInt();
+			String numero=sc.next();
 			//ingresarDireccionCiudad();
 			return numero;
 		}
@@ -66,10 +66,9 @@ public class Vista {
 			return direccion;
 		}
 
-		public int ingresarNumTelefonico(){
+		public String ingresarNumTelefonico(){
 			System.out.println("Ingrese su numero de telefono: ");
-			int telefono=sc.nextInt();
-			//ingresarNombreEmergencia();
+			String telefono=sc.next();
 			return telefono;
 		}
 
@@ -94,9 +93,9 @@ public class Vista {
 			//ingresarNumeroIdentificacionEmergencia();
 			return tipoIdentificacion;
 		}
-		public int ingresarNumeroIdentificacionEmergencia(){
+		public String ingresarNumeroIdentificacionEmergencia(){
 			System.out.println("Ingrese su numero de identificacion: ");
-			int numero=sc.nextInt();
+			String numero=sc.next();
 			//this.ingresarDireccionCiudadEmergencia();
 			return numero;
 		}
@@ -119,10 +118,9 @@ public class Vista {
 		//ingresarNumTelefonicoEmergencia();
 		return direccion;
 	}
-		public int ingresarNumTelefonicoEmergencia(){
+		public String ingresarNumTelefonicoEmergencia(){
 			System.out.println("Ingrese su numero de telefono: ");
-			int telefono=sc.nextInt();
-			//mostrarTodasRutas();
+			String telefono=sc.next();
 			return telefono;
 		}
 
@@ -174,6 +172,7 @@ public class Vista {
 
 			return tipo;
 		}
+
 
 
 

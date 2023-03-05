@@ -42,11 +42,11 @@ public class Vagon {
 		}
 	}
 
-	public int buscarPasajero(int  idRegistro) {
+	public int buscarPasajero(String  idRegistro) {
 		boolean pasajeroEnVagon = false;
 		int contarPuesto = 1;
 		try {
-			if(idRegistro!=0){
+			if(idRegistro!=null){
 				Iterator ite=listaPuestos().iterator();
 				LinkedListNode<Pasajero> pasajeroAux = new LinkedListNode();
 				while (ite.hasNext()) {

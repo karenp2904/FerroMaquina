@@ -4,8 +4,8 @@ public class Empleado extends Persona {
 
 	private String empleado;
 	
-	public Empleado(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
-			Direccion direccionActual, int telefono,  String empleado) {
+	public Empleado(String nombre, String apellido, String tipoIdentificacion, String numeroIdentificacion,
+			Direccion direccionActual, String telefono,  String empleado) {
 		super(nombre, apellido, tipoIdentificacion, numeroIdentificacion, direccionActual, telefono);
 	
 		this.empleado = empleado;

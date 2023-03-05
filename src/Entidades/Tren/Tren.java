@@ -63,12 +63,12 @@ public class Tren {
         }
 
 	}
-	public int buscarVagon(int idRegistro) {//dira en que numero de vagon se encuentra
+	public int buscarVagon(String idRegistro) {//dira en que numero de vagon se encuentra
 		boolean pasajeroEnVagon = false;
 		int contarVagon = 1;
 		try {
 			Vagon vagonBusqueda = new Vagon();
-			if (idRegistro != 0) {
+			if (idRegistro != null) {
 				if (!vagonInicial()) {//la lista estara ya con vgones para que entre, retornara false porque no esta vacia
 					Iterator ite = listavagonesTren.iterator();//se itera entre los vagones del tren
 					LinkedListNode<Vagon> vagonAux = new LinkedListNode<>();
@@ -110,7 +110,7 @@ public class Tren {
 				RutaTren rutas= (RutaTren) rutass.getObject();//rutas
 				if(rutas.getTren().getIdTren()==idTren){// si el idtren e igual ala ruta que esta
 					System.out.println("Se encuentra en el tren "+ rutas.getTren().getIdTren());
-					if(pasajero.getIdRegistro()!=0){//si el resgistro no es 0
+					if(pasajero.getIdRegistro()!=null){//si el resgistro no es 0
 						int vagonEncontrado=buscarVagon(pasajero.getIdRegistro());//buscara en los vagones y retornara el vagon donde esta
 						System.out.println("Se encuentra en el vagon " + vagonEncontrado);
 						int puesto=vagon.buscarPasajero(pasajero.getIdRegistro());

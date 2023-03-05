@@ -7,13 +7,13 @@ public class Persona {
 	private String nombre;
 	private String apellido;
 	private String tipoIdentificacion;
-	private int numeroIdentificacion;
+	private String numeroIdentificacion;
 	private Direccion direccionActual;
-	private int telefono;
+	private String telefono;
 	
 
-	public Persona(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
-			Direccion direccionActual, int telefono) {
+	public Persona(String nombre, String apellido, String tipoIdentificacion, String numeroIdentificacion,
+			Direccion direccionActual, String telefono) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -26,10 +26,10 @@ public class Persona {
 
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	public Direccion getDireccionActual() {
@@ -38,10 +38,10 @@ public class Persona {
 	public void setDireccionActual(Direccion direccionActual) {
 		this.direccionActual = direccionActual;
 	}
-	public int getNumeroIdentificacion() {
+	public String getNumeroIdentificacion() {
 		return numeroIdentificacion;
 	}
-	public void setNumeroIdentificacion(int numeroIdentificacion) {
+	public void setNumeroIdentificacion(String numeroIdentificacion) {
 		this.numeroIdentificacion = numeroIdentificacion;
 	}
 	public String getTipoIdentificacion() {

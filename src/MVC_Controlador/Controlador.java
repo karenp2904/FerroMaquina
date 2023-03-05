@@ -39,19 +39,19 @@ public class Controlador  {
 		String nombre=vista.ingresarNombre();
 		String apellido=vista.ingresarApellido();
 		String tipoId=vista.ingresarTipoIdentificacion();
-		int numeroIde=vista.ingresarNumeroIdentificacion();
+		String numeroIde=vista.ingresarNumeroIdentificacion();
 
 		String ciudad=vista.ingresarDireccionCiudad();
 		String calle= vista.ingresarDireccionCalle();
 		String carrera= vista.ingresarDireccionCarrera();
 		Direccion direccionActual=modelo.definirDireccion(ciudad,calle,carrera);
 
-		int telefono= vista.ingresarNumTelefonico();
+		String telefono= vista.ingresarNumTelefonico();
 
-		int idRegistro=numeroIde;
+		String idRegistro=numeroIde;
 		String eleecion= vista.elegirPasajeroDeTiquete();
 		TipoPasajero pasajeroTipo=modelo.tipoPasajeroEscogerNombre(eleecion);
-		añadirPersona(nombre, apellido, tipoId, numeroIde,direccionActual,telefono,idRegistro,pasajeroTipo);
+		añadirPersona(nombre, apellido, tipoId,numeroIde,direccionActual,telefono,idRegistro,pasajeroTipo);
 		solicitarDatosEmergencia();
 	}
 
@@ -59,22 +59,26 @@ public class Controlador  {
 		String nombre=vista.ingresarNombreEmergencia();
 		String apellido=vista.ingresarApellidoEmergencia();
 		String tipoId=vista.ingresarTipoIdentificacionEmergencia();
-		int numeroIde=vista.ingresarNumeroIdentificacionEmergencia();
+		String numeroIde=vista.ingresarNumeroIdentificacionEmergencia();
 		String ciudad=vista.ingresarDireccionCiudadEmergencia();
 		String calle= vista.ingresarDireccionCalleEmergencia();
 		String carrera= vista.ingresarDireccionCarreraEmergencia();
-		int telefono= vista.ingresarNumTelefonicoEmergencia();
+		String telefono= vista.ingresarNumTelefonicoEmergencia();
 		Direccion direccionActual=modelo.definirDireccion(ciudad,calle,carrera);
 		añadirContactoEmergencia(nombre, apellido, tipoId, numeroIde,direccionActual,telefono);
 		this.desplejarTodasRutasControl();
 	}
-	public void añadirContactoEmergencia(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
-										 Direccion direccionActual, int telefono){
+	public int pesoCargaControl(){
+		int peso= vista.ingresarPesoDeCarga();
+		return peso;
+	}
+	public void añadirContactoEmergencia(String nombre, String apellido, String tipoIdentificacion, String numeroIdentificacion,
+										 Direccion direccionActual, String telefono){
 		modelo.añadirContactoEmergencia(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono);
 
 	}
-	public void añadirPersona(String nombre, String apellido, String tipoIdentificacion, int numeroIdentificacion,
-							  Direccion direccionActual, int telefono, int idRegistro, TipoPasajero tipoPasajeroo){
+	public void añadirPersona(String nombre, String apellido, String tipoIdentificacion, String numeroIdentificacion,
+							  Direccion direccionActual, String telefono, String idRegistro, TipoPasajero tipoPasajeroo){
 		modelo.añadirPasajeroVagon(nombre,apellido,tipoIdentificacion,numeroIdentificacion,direccionActual,telefono,idRegistro,tipoPasajeroo);
 
 
